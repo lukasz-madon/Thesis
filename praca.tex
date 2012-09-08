@@ -1,0 +1,85 @@
+\documentclass[pdflatex,12pt]{aghdpl}
+% \documentclass{aghdpl}               % przy kompilacji programem latex
+% \documentclass[pdflatex,en]{aghdpl}  % praca w jêzyku angielskim
+\usepackage[polish]{babel}
+\usepackage[latin2]{inputenc}
+% dodatkowe pakiety
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{geometry}
+
+\lstloadlanguages{TeX}
+
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+%---------------------------------------------------------------------------
+
+\author{£ukasz Madoñ}
+\shortauthor{£.Madoñ}
+
+\titlePL{Wizualizacja procesów dyfuzji i porz±dkowania w stopach miêdzymetalicznych}
+%\titleEN{Visualisation of diffusion and ordering processes in intermetallic alloys}
+
+\shorttitlePL{Wizualizacja procesów dyfuzji i porz±dkowania w stopach miêdzymetalicznych} % skrócona wersja tytu³u je¶li jest bardzo d³ugi
+%\shorttitleEN{Visualisation of diffusion and ordering processes in intermetallic alloys}
+
+\thesistypePL{Praca magisterska}
+%\thesistypeEN{Master of Science Thesis}
+
+\supervisorPL{dr Lucjan Pytlik}
+%\supervisorEN{Lucjan Pytlik Ph.D}
+
+\date{wrzesieñ 2012}
+
+\departmentPL{Katedra Informatyki Stosowanej i Fizyki Komputerowej}
+%\departmentEN{Department of Applied Informatics and Computational Physics}
+
+\facultyPL{Wydzia³ Fizyki i Informatyki Stosowanej}
+%\facultyEN{Faculty of Physics and Applied Computer Science}
+
+%\acknowledgements{Serdecznie dziêkujê \dots tu ci±g dalszych podziêkowañ np. dla promotora, ¿ony, s±siada itp.}
+
+
+
+\setlength{\cftsecnumwidth}{10mm}
+
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\titlepages
+
+Merytoryczna ocena pracy przez opiekuna:
+\clearpage
+Merytoryczna ocena pracy przez recenzenta:
+\clearpage
+
+\include{tematyka}
+
+\tableofcontents
+\clearpage
+
+\include{rozdzial1}
+\include{rozdzial2}
+\include{rozdzial3}
+\include{rozdzial4}
+\include{rozdzial5}
+
+
+
+% itd.
+ \appendix
+ \include{dodatekA}
+% \include{dodatekB}
+% itd.
+
+\listoffigures
+\listoftables
+
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+
+\end{document}

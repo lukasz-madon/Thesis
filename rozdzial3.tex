@@ -1,0 +1,277 @@
+\chapter{Przegl±d potencjalnych technologii}
+\label{cha:przegladTech}
+W rozdziale opiszê technologie u¿yte do stworzenia prototypów i finalnej aplikacji.
+
+%---------------------------------------------------------------------------
+
+\section{Zdefiniowanie wymagañ projektowych}
+\label{sec:wymaganiaProjektowe}
+
+Jednym z najwa¿niejszych zadañ podczas realizacji projektu jest zebranie i analiza wymagañ projektowych. Wymagania projektowe to zbiór potrzeb danego produktu lub us³ugi, a tak¿e sposób ich dzia³ania. W in¿ynierii oprogramowania zbiór wymagañ jest wykorzystywany w fazie projektowania nowego produktu. Wymagania pokazuj±, jakie elementy i funkcje s± niezbêdne w konkretnym przypadku. Istnieje bardzo du¿o modeli opisuj±cy ten proces. Wiêkszo¶æ z nich jest standaryzowana przez organizacje ISO oraz IEC pod numerem 12207 Systems and software engineering\cite{IsoIec2008}.
+
+Przez zebraniem wymagañ czêsto wykonuje siê jeszcze jeden etap - studium wykonalno¶ci, które sk³ada siê z analizy rynku, analizy ekonomicznej, analizy strategicznej oraz analizy technicznej. W zale¿no¶ci od rozmiaru projektu samo zbieranie wymagañ, mo¿e zostaæ podzielony na etapy. Jest to bardzo czêsta praktyka w projektach rz±dowych\cite{req}. Fazê wymagañ dzielimy na:
+
+\begin{enumerate}%[1)]
+\item gromadzenie wymagañ
+\item analizowanie
+\item specyfikowanie
+\item zatwierdzenie
+\end{enumerate}
+
+Dobre wymagania projektowe charakteryzuje\cite{req}:
+\begin{enumerate}%[1)]
+\item Aktualno¶æ - wymaganie powinno pozostaæ aktualne z up³ywem czasu.
+\item Jednoznaczno¶æ - wymaganie powinno byæ jasno sformu³owane, bez subiektywnych opinii. ¯argon techniczny i akronimy powinny byæ zdefiniowane w dokumencie. 
+\item Kompletno¶æ - wymaganie powinno byæ zdefiniowane w jednym miejscu z kompletem niezbêdnych informacji.
+\item Obowi±zkowo¶æ - ka¿de niezbêdny wymaganie musi zostaæ zdefiniowane. Brak wymagania oznacza wykluczenie z projektu.
+\item Poprawno¶æ - wymaganie wype³nia wszystkie lub czê¶æ potrzeb biznesowych, które s± jasno okre¶lone.
+
+\item Spójno¶æ - wymaganie odnosi siê do jednej i tylko jednej sprawy.
+\item Wykonalno¶æ - wymaganie musi byæ wykonalne w ramach ograniczeñ projektowych.
+\item Weryfikowalno¶æ - wymaganie powinno byæ weryfikowalne empirycznie lub poprzez analizê.
+\item Zgodno¶æ - wymagania nie powinny byæ sprzeczne ze sob±.
+\end{enumerate}
+
+Istnieje wiele ró¿nych cech, które charakteryzuj± dobre wymagania, ale s± one specyficzne dla danej domeny technologicznej. Istnieje jeszcze jeden istotny podzia³ wymagañ. Podzia³ na trzy kategorie:
+\begin{enumerate}%[1)]
+\item Wymagania funkcjonalne - definiuj±, co ma realizowaæ system np. system powinien generowaæ raporty.
+\item Wymagania niefunkcjonalne - s± to wymagania jako¶ciowe. Opisuj± bezpieczeñstwo, wydajno¶æ itp.
+\item Wymagania ograniczeñ - okre¶laj± granice rozwi±zania.
+\end{enumerate}
+
+Wszystkie wymagania powinny byæ weryfikowalne, poza wymaganiami ograniczeñ typu ,,system nie powinien''.
+
+
+\subsection{Model Kaskadowy}
+\label{subsec:modelKaskadowy}
+
+Pierwsze wzmianki o wymaganiach projektowych pochodz± z lat sze¶ædziesi±tych ubieg³ego wieku.\cite{appliedSoftware} IBM by³ pionierem badañ dotycz±cych procesu tworzenia oprogramowania. W 1956 roku jeden z pracowników IBMu, Herbert D. Benington, podczas konferencji na temat zaawansowanych metod tworzenia oprogramowania, opisa³ model kaskadowy (inaczej zwany wodospadowym)\cite{advencedSoft}.
+
+Model kaskadowy podzielony jest na 7 chronologicznych czê¶ci:\cite{waterfallModel}
+
+\begin{enumerate}%[1)]
+\item Tworzenie wymagañ projektowych
+\item Projektowanie
+\item Implementacja
+\item Integracja
+\item Testowanie i debugowanie
+\item Wdra¿anie
+\item Utrzymanie i konserwacja
+\end{enumerate}
+
+Model kaskadowy jest sekwencyjny. G³ówn± jego cech± jest podzia³ na niezale¿ne czê¶ci, z których ka¿da wykonywana jest po zakoñczeniu poprzedzaj±cej. Zalet± takiego podej¶cia jest wykrywanie b³êdów we wczesnych etapach. 
+B³±d wykryty podczas projektowania stanowi du¿o mniejsze wyzwanie i jest ³atwiejszy w naprawie, ni¿ defekt, którego istnienie spostrze¿ono dopiero w fazie wdra¿ania. Jednak takie rozwi±zanie ma równie¿ swoje wady. Najistotniejszym problemem jest brak mo¿liwo¶ci szybkiej zmiany na pó¼nym etapie projektu. W realnych warunkach wymagania zmieniaj± siê bardzo czêsto, co dla nietrywialnych projektów mo¿e oznaczaæ ci±g³e powroty do fazy projektowej. Bardziej fatalne w skutkach mo¿e okazaæ siê z³e okre¶lenie wymagañ projektowych. Przyk³adowo:  podczas wdra¿ania klient stwierdzi, ¿e oprogramowanie nie jest dostatecznie szybkie, co mo¿e byæ skutkiem ograniczeñ technologicznych. W takim wypadku projekt jest zamykany. Kolejnym problemem jest s³abe wykorzystanie zasobów ludzkich - testerzy musz± czekaæ na zakoñczenie pracy przez programistów. W 2001 roku przeprowadzono badanie 1027 projektów IT w Wielkiej Brytanii. Okaza³o siê, ¿e techniki zarz±dzania narzucaj±ce metodologiê kaskadow± by³y jednym z najwiêkszych czynników, które wp³ynê³y na pora¿kê projektu \cite{sofscal}. Problemy te okaza³y siê na tyle powa¿ne, ¿e dzisiaj nikt ju¿ nie korzysta z modelu kaskadowego. W genialny sposób Edward V. Berard podsumowa³ kompleksowe specyfikacje modelu kaskadowego.
+\begin{quote}
+Walking on water and developing software from a specification are easy if both are frozen.
+\end{quote}
+%\quote{}
+
+%\newpage
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.6]{waterfall}
+	\caption{Schemat modelu kaskadowego.}
+\end{figure}
+
+\newpage
+
+\subsection{Model spiralny}
+\label{subsec:modelSpi}
+
+Model spiralny jest to rodzaj procesu tworzenia oprogramowania. Kolejne etapy s± podzielone na mniejsze czê¶ci. Ka¿da z tych czê¶ci jest cyklicznie powtarzana w pêtli, przez co plan jest przedstawiany w postaci spirali. Model spiralny, podobnie jak kaskadowy, posiada ¶cis³± kontrole nad projektem. W pocz±tkowej fazie ³±czymy projektowanie z tworzeniem prototypów \cite{spiral}.
+
+Pêtle spirali s± podzielone na sektory:  
+\begin{enumerate}%[1)]
+\item Definicja celów
+\item Rozpoznanie i redukcja zagro¿eñ
+\item Implementacja i zatwierdzanie
+\item Ocena i planowanie
+\end{enumerate} 
+
+Wyra¼n± zalet± modelu spiralnego jest szczegó³owa analiza zagro¿eñ. Model spiralny, nie precyzuje w jaki sposób maja byæ realizowane poszczególne pêtle np. mo¿na u¿yæ modelu kaskadowego. Podobnie jak w modelu kaskadowym, usuwanie b³êdów w koñcowych etapach jest bardzo kosztowne.
+
+\begin{center}
+	\includegraphics[scale=0.6]{ModelSpiralny}
+	\captionof{figure}{Schemat modelu spiralnego. ¬ród³o:\cite{spiral}. }
+\end{center}
+
+\subsection{Model iteracyjny}
+\label{subsec:modelIter}
+
+W odpowiedzi na wady modelu kaskadowego powsta³y modele iteracyjne. Pierwszy system wykonany w oparciu o model iteracyjny datuje siê na rok 1960. Powsta³ on w ramach projektu Mercury, który by³ sponsorowany przez NASA\cite{iterBrief}. Podstawowym pomys³em, który definiuje model iteracyjny, jest budowanie systemu poprzez powtarzalne cykle (iteracje). Podej¶cie to pozwala deweloperom wyci±gn±æ wnioski z dotychczasowej pracy, zwiêksza elastyczno¶æ wymagañ w pó¼niejszym okresie oraz pozwala lepiej wykorzystaæ zasoby firmy. Model iteracyjny jest czêsto stosowany w wypadku, gdy pe³na funkcjonalno¶æ systemu nie jest wymagana. Klient mo¿e otrzymaæ czê¶ciowo dzia³aj±cy system, aby lepiej oceniæ jego funkcjonalno¶æ.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=1.0]{itermodel}
+	\caption{Schemat modelu iteracyjnego.}
+\end{figure}
+
+Oczywi¶cie model iteracyjny posiada równie¿ wady, takie jak dodatkowy koszt ka¿dego cyklu czy trudno¶æ w podziale na iteracje. Pomimo tego, wszystkie wspó³czesne metody tworzenia oprogramowania bazuj± na idei iteracji.
+
+Przyk³adem modelu iteracyjnego jest RUP (Rational Unified Process)\cite{rup}, który sk³ada siê z sze¶ciu praktyk:
+
+\begin{enumerate}%[1)]
+\item Buduj iteracyjnie z ryzykiem jako najwa¿niejszym czynnikiem
+\item Zarz±dzaj wymaganiami
+\item Wprowad¼ architekturê opart± na komponentach
+
+\item Wprowad¼ modele wizualne oprogramowania
+\item Ci±gle sprawdzaj jako¶æ
+\item Kontroluj zmiany
+\end{enumerate} 
+
+Pod koniec lat dziewiêædziesi±tych RUP dominowa³ jako model budowania systemów zw³aszcza w ¶rodowiskach korporacyjnych i rz±dowych. Wad± tego rozwi±zania jest spora ilo¶æ dokumentacji - czêsto wymagana np. przez regulatora - która wyd³u¿a i usztywnia proces tworzenia systemu.
+
+\subsection{Agile Manifesto}
+\label{subsec:agileMan}
+
+Jako reakcja na poziom komplikacji i koszty metod, takich jak kaskadowa, powsta³o wiele tzw. ,,lekkich'' metod. Oto niektóre z nich:\cite{agileAndIter}
+
+\begin{enumerate}%[1)]
+\item Scrum (1995)
+\item XP (Extreme Programming) (1996)
+\item Crystal Clear
+
+\item Feature Driven Development
+\item Dynamic Systems Development Method (1995)
+\end{enumerate} 
+
+W 2001 roku fundacja non-profit Agile Alliance opublikowa³a ,,Agile Manifesto''. Manifest ten zawiera najwa¿niejsze zasady nowo powsta³ych metodologii. Sk³ada siê on z 4 podpunktów:\cite{agileManifesto}
+
+\begin{enumerate}%[1)]
+\item Ludzie i interakcje ponad procesy i narzêdzia
+\item Dzia³aj±ce oprogramowanie ponad wyczerpuj±c± dokumentacjê
+
+\item Wspó³praca klienta ponad negocjacjê umowy
+\item Reakcja na zmiany ponad wykonanie planu
+\end{enumerate}
+
+Metodologie Agile posiadaj± bardzo ¶cis³y opis procesu, dlatego zarz±dzanie projektem wymaga dyscypliny. Inspekcje wymagañ s± bardzo czêste, przez co szybko tworzone jest oprogramowanie wysokiej jako¶ci. Agile kierowany jest g³ownie do ma³ych i ¶rednich zespo³ów, dlatego dokumentacja jest ograniczona do minimum. Zespo³y programistów Agile s± zazwyczaj wielofunkcyjne i samozarz±dzalne, z bardzo p³ask± hierarchi±. Bardzo du¿y nacisk k³adzie siê na komunikacjê bezpo¶redni±, dlatego bardzo popularne s± codzienne kilkunastominutowe spotkania.
+
+Metody Agile dziel± zadania na ma³e procesy iteracyjne, które nie zawieraj± planowania d³ugoterminowego. Iteracje s± krótkie. Trwaj± zazwyczaj od 1 do 4 tygodni. Ka¿da iteracja zawiera pe³en proces: planowanie, analiza wymagañ, projektowanie, implementacja i testowanie. Na koñcu dzia³aj±cy produkt jest przedstawiany klientom. Minimalizuje to ryzyko drastycznych zmian w wymaganiach projektu. Bardzo czêsto, aby zminimalizowaæ komunikacjê, przedstawiciel klientów jest cz³onkiem zespo³u.\cite{agileManifesto}.
+
+\subsection{The Lean Startup}
+\label{subsec:lean}
+
+Bardzo ciekawe podej¶cie opisuje Eric Ries w swojej ksi±¿ce ,,The Lean Startup''. Opisuje on sytuacje, w których czêsto nie mo¿na stworzyæ specyfikacji, poniewa¿ klient nie wie dok³adnie, jakiego produktu oczekuje lub jest to produkt innowacyjny. Filozofia ,,The Lean Startup'' opiera siê na procesie produkcji Lean Manufacturing. Jest to proces opracowany w japoñskich fabrykach samochodów, który minimalizuje straty poprzez redukcjê kosztów, które nie tworz± warto¶ci dla klienta. W szczególno¶ci system koncentruje siê na odpowiednim umieszczeniu ma³ych zapasów niezbêdnych materia³ów(zwanych Kanban) na ca³ej linii produkcyjnej, zamiast przechowywania zapasów w magazynie centralnym. Zmniejsza to straty i zwiêksza produktywno¶æ, z drugiej strony trudniejsze staje siê zarz±dzanie zasobami(g³ównie surowcami i pó³produktami) \cite{lean}.
+
+Z filozofi± Lean Startup wi±¿e siê piêæ kluczowych pojêæ:
+\begin{enumerate}%[1)]
+\item Minimum viable product - jest to produkt, który pozwala nam na zebranie jak najwiêkszej liczby potwierdzonych faktów o klientach, przy jak najmniejszym koszcie. Pozwala rozpocz±æ proces badania potrzeb klientów jak najwcze¶niej.
+\item Continuous deployment - jest to proces, w którym ka¿dy nowy kod jest natychmiast wdra¿any.
+\item Split testing (inaczej zwany A/B test) - jest to rodzaj testu, w którym tej samej grupie klientów pokazujemy dwie lub wiêcej wersji danego produktu. Dziêki temu mo¿emy wybraæ wersjê, która odpowiada klientom bardziej oraz okre¶liæ kierunek rozwoju.
+\item Vanity metrics - jest to rodzaj metryki, w jaki sposób firmy próbuj± okre¶liæ wzrost biznesu, tak aby by³ on jak najlepszy. Czêsto daje to fa³szywy obraz.
+\item Pivot - jest to kontrolowana, gruntowna zmiana produktu lub strategii.
+\end{enumerate}
+
+Filozofia Lean Startup jest nie tylko z powodzeniem stosowana do produktów IT - korzystaj± z niej równie¿ inne bran¿e.
+
+\section{Specyfikacja programu do wizualizacji CMA}
+\label{subsec:specCMA}
+Gdy zaczyna³em budowaæ program do wizualizacji stopów miêdzymetalicznych, postanowi³em zebraæ wymagania wed³ug danego planu:
+
+\begin{enumerate}%[1)]
+\item Wymaganie powinny byæ podzielone na podpunkty
+\item Ka¿dy podpunkt powinien zawieraæ, co jest wymagane - bez okre¶lenia jak to zostanie zrobione
+\item Ka¿dy podpunkt powinien byæ ,,atomowy''. Na przyk³ad ,,Program powinien wy¶wietliæ 1000 obiektów oraz tworzyæ animacje 1000 obiektów'' nale¿y rozbiæ na 2 podpunkty ,,Program powinien wy¶wietliæ 1000 obiektów'' oraz ,,Program powinien tworzyæ animacje 1000 obiektów''
+\item Powinien byæ jasno okre¶lony cel, wymagania projektowe oraz specyfikacja funkcjonalna
+\item Nale¿y okre¶liæ wymagania bezpieczeñstwa
+
+\item Wymagania niefunkcjonalne powinny okre¶laæ wydajno¶æ i dostêpno¶æ
+\item Nale¿y okre¶liæ co nie jest wymagane tak aby odró¿niæ elementy przypadkowo pominiête
+\item Nale¿y okre¶liæ sposób komunikacji z innymi komponentami lub systemami
+\end{enumerate} 
+
+Po kilku drobnych zmianach ostateczna wersja specyfikacji sk³ada³a siê z 13 podpunktów dla wymagañ projektowych i 11 podpunktów specyfikacji funkcjonalnej:
+
+\textbf{Cel:}
+
+Celem projektu jest stworzenie aplikacji do wizualizacji procesów dyfuzji i porz±dkowania w stopach miêdzymetalicznych. Aplikacja powinna korzystaæ z graficznego interfejsu, tak aby narzêdzie do analizy by³o wygodne w u¿yciu.
+
+\textbf{Wymagania projektowe:}
+\begin{enumerate}%[1)]
+\item Program dzia³a pod systemem Windows (zalecany jest Windows 7 lub wy¿szy, mo¿liwe jest wspieranie innych systemów)
+\item Program dzia³a pod kontrol± ¶rodowiska .Net
+\item Program powinien obs³u¿yæ klika tysiêcy modeli 3D jednocze¶nie, dzia³aj±c p³ynnie dla operacji, takich jak obrót
+\item Program powinien obs³ugiwaæ ró¿ne rozdzielczo¶ci ekranów
+\item Program powinien informowaæ u¿ytkownika o postêpie zadañ trwaj±cych wiêcej ni¿ 5 sekund
+
+\item Program powinien obs³ugiwaæ pliki w formacie .chmc
+\item Parametry modeli, taki jak kolor, prze¼roczysto¶æ musz± byæ zgodne z warto¶ciami symulacji
+\item Program powinien tworzyæ rzuty modeli dla grupy plików wej¶ciowych symulacji
+\item Dla ka¿dej klatki animacji musz± zostaæ uwzglêdnione parametry pocz±tkowe ustawione przez u¿ytkownika
+\item Program powinien zu¿ywaæ mniej ni¿ 1GB ramu dla liczby obiektów poni¿ej 3000
+
+\item Dostêpno¶æ programu jest wy³±cznie zale¿na od komputera, na którym aplikacja siê znajduje
+\item Program nie powinien ³±czyæ siê z us³ugami internetowymi lub sieciowymi
+\item Program nie powinien ³±czyæ siê z innymi komponentami
+\end{enumerate}
+
+\newpage
+
+\textbf{Specyfikacja funkcjonalna:}
+\begin{enumerate}%[1)]
+\item U¿ytkownik mo¿e otworzyæ plik, aby wczytaæ model
+\item U¿ytkownik mo¿e obracaæ modelem 3D 
+\item U¿ytkownik mo¿e powiêkszyæ model
+\item U¿ytkownik mo¿e precyzyjnie wybraæ skale modelu
+\item U¿ytkownik mo¿e wróciæ do parametrów pocz±tkowych
+
+\item U¿ytkownik mo¿e zmieniæ parametry kamery
+\item U¿ytkownik mo¿e skalowaæ modele
+\item U¿ytkownik mo¿e zapisaæ zrzut ekranu na którym znajduje siê model
+\item U¿ytkownik ma mo¿liwo¶æ filtrowania modeli poprzez ustawienie maski
+\item U¿ytkownik mo¿e przetwarzaæ grupê plików do stworzenia animacji
+
+\item U¿ytkownik mo¿e zmieniæ warto¶æ kana³u alfa modeli
+\end{enumerate}  
+Zaleta tak zwiêz³ej specyfikacji jest ³atwo¶æ ewentualnych zmian oraz krótki czas nauki dla dewelopera.
+
+%---------------------------------------------------------------------------
+
+\section{Prototypy ró¿nych technologii}
+\label{sec:prototypy}
+
+Po zebraniu wszystkich wymagañ projektowych mog³em przyst±piæ do budowy kilku prototypów ró¿nych technologii, by sprawdziæ, która najlepiej spe³nia wymagania. Prototypownie jest o tyle istotne, ¿e daje nam empiryczny dowód mo¿liwo¶ci danej technologii. Jako potencjalnych kandydatów wytypowa³em cztery technologie, które posiadaj± wsparcie dla grafiki 3D: 
+
+\begin{enumerate}%[1)]
+\item OpenGL
+\item XNA
+\item WPF
+\item DirectX
+\end{enumerate}  
+
+OpenGL (ang. Open Graphics Library) - jest otwartym standardem API, s³u¿±cym do generowania grafiki. Biblioteka umo¿liwia prace na najni¿szym poziomie, w zwi±zku z tym bardzo czêsto korzysta siê z rozszerzeñ, silników lub frameworków. Filozofia dzia³ania OpenGL opiera siê na maszynie stanowej \cite{openGLspec}. Biblioteka ma dwa g³ówne cele. Stworzyæ jednolity interface niezale¿ny od sprzêtu oraz wpieraæ standard w pe³ni, nawet w przypadku braku funkcjonalno¶ci w sprzêcie (emulacja oprogramowaniem). OpenGL jest bezpo¶rednim konkurentem DirectX.
+
+XNA - jest to framework do tworzenia gier w ramach platformy .Net. Pocz±tkowo powsta³ on dla konsoli Xbox, ale zosta³ rozszerzony na ca³y ekosystem Microsoftu. Dzia³a on na relatywnie niskim poziomie. Posiada wiele cech wspólnych z technologi± DirectX, takich jak wsparcie dla grafiki 3D, jednak kod jest w pe³ni zarz±dzany. Dostêpne jest równie¿ opensoucowa implementacja Mono.XNA, która dzia³a na innych systemach, takich jak Mac OS X czy Linux. Pomimo i¿ XNA powsta³o jako framework do gier, z powodzeniem jest stosowany do innych zadañ. Przyk³adowo XNA Math s³u¿y do obliczeñ matematycznych na jednostce graficznej\cite{xnaUrl}.
+
+WPF (ang. Windows Presentation Foundation) - jest czê¶ci± platformy .Net, s³u¿±c± do tworzenia aplikacji graficznych. Do definicji obiektów u¿ywany jest XAML (pochodna XMLa), który zwiêksza mo¿liwo¶ci budowania bogatych interfejsów bez ingerencji programisty. Grafik, tworz±c interface graficzny, tworzy³ tylko szablon dla programisty, który implementowa³ wszystkie elementy. Korzystaj±c z XAML i narzêdzi, takich jak Blend, grafik jest w stanie stworzyæ w pe³ni funkcjonalne GUI bez pomocy programisty. Po¶rednio korzysta z DirectX, wy³±cznie poprzez interface z kodu zarz±dzanego.\cite{wpf}.
+
+DirectX jest kolekcj± API do tworzenia grafiki 2D i 3D. G³ównie wykorzystywana w grach i aplikacjach multimedialnych. DirectX jest technologi± Microsoftu, która wspiera równie¿ efekty d¼wiêkowe do gier, obs³ugê urz±dzeñ peryferyjnych itp. DirectX, poza wsparciem dla multimediów, oferuje równie¿ DirectCompute. Technologia umo¿liwia wykorzystanie DirectX do obs³ugi obliczeñ GPGPU. Aby korzystaæ bezpo¶rednio z DriectX, nale¿y aplikacje napisaæ w jêzyku C lub C++\cite{directX}.
+
+OpenGL i DirectX z pewno¶ci± poradzi³by sobie z programem do wizualizacji w sensie wydajno¶ciowym. Problemem staje siê tworzenie przycisków, suwaków i innych kontrolek. Obie technologie pracuj± na bardzo niskim poziomie, dlatego wymagaj± sporych nak³adów pracy. W przypadku XNA i WPF nie mia³em do¶wiadczenia, które potwierdza³oby spe³nienie wymagañ projektowych, dlatego stworzy³em 2 prototypy.
+
+\newpage
+
+Pierwszy prototyp bazowa³ na XNA. Po za³adowaniu testowych plików prototyp spe³ni³ wszystkie wymagania stawiane w specyfikacji.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.7]{xna1}
+	\caption{Zrzut ekranu pierwszego prototypu (XNA).}
+\end{figure}
+
+Kolejny prototyp powsta³ w WPF. Po za³adowaniu modeli dzia³a³ on wyra¼nie wolniej od pierwszego, jednak na tyle dobrze, ¿e spe³ni³ wszystkie wymagania projektowe.
+
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.7]{wpf1}
+	\caption{Zrzut ekranu drugiego prototypu (WPF).}
+\end{figure}
+
+Reasumuj±c, ka¿da z wyszczególnionych technologii spe³ni³a wszelkie kryteria, postanowi³em jednak wybraæ WPF. Jest to technologia najbardziej optymalna pod wzglêdem po¶wiêconego czasu in¿ynieryjnego. Posiada wbudowany uk³ad wspó³rzêdnych w trzech wymiarach, kamerê, predefiniowane tekstury i wiele innych. Integracja z graficznym interfejsem nie wymaga ¿adnej dodatkowej pracy w odró¿nieniu od XNA. 
+
+
+

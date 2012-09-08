@@ -1,0 +1,127 @@
+\chapter{Podsumowanie}
+\label{cha:podsumowanie}
+
+W rozdziale zaprezentujê wyniki, opiszê jak mo¿na rozszerzyæ aplikacjê oraz podsumujê zrealizowane zadania.
+
+%---------------------------------------------------------------------------
+\section{Wyniki}
+\label{sec:wyniki}
+
+Celem pracy by³o stworzenie narzêdzia, dlatego postanowi³em zamie¶ciæ kilka obrazów wynikowych ilustruj±cych mo¿liwo¶ci aplikacji. U¿ytkownik mo¿e w ka¿dej chwili wykonaæ zrzut ekranu oraz zmieniaæ parametry modelu. Rysunki ~\ref{fig:3_14_19}, ~\ref{fig:res2} i ~\ref{fig:res3} demonstruj± mo¿liwo¶ci narzêdzia.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.8]{3_14_19}
+	\caption{Seria 3, 14 i 19 atomów $\beta$- Mg$_{2}$Al$_{3}$ przy temperaturze 2000K.}
+	\label{fig:3_14_19}
+\end{figure} 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.8]{res2}
+	\caption{Seria 3, 7, 9 i 21 atomów $\beta$- Mg$_{2}$Al$_{3}$ przy temperaturze 400K i obrocie.}
+	\label{fig:res2}
+\end{figure} 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.8]{res3}
+	\caption{Seria 1, 3, 4, 5, 7, 10, 14, 17, 20, i 22 atomów $\beta$- Mg$_{2}$Al$_{3}$ przy temperaturze 1000K.}
+	\label{fig:res3}
+\end{figure} 
+
+\clearpage
+Przy przetwarzaniu wielu plików mo¿emy stworzyæ kolejne klatki przedstawiaj±ce ewolucjê systemu. Poni¿ej kolejne stany pocz±wszy od temperatury 2000 K dla serii 1, 8, 11, 12, 13, 14, 21. Wszystkich modeli jest 31, dlatego zaprezentujê tylko kluczowe klatki.
+
+\begin{center}
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{01}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 2000K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{02}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 1500K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+ % \centering
+	\includegraphics[scale=0.5]{09}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 1100K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{11}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 1000K.}
+%\end{figure} 
+
+%---------------
+
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{14}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 900K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{17}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 850K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+  %\centering
+	\includegraphics[scale=0.5]{21}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 750K.}
+%\end{figure} 
+
+%\begin{figure}[h!]
+ % \centering
+	\includegraphics[scale=0.5]{31}
+	\captionof{figure}{Stan komórki elementarnej dla temperatury 400K.}
+%\end{figure} 
+\end{center}
+
+Z obrazów wynikowych z³o¿y³em film. Mo¿na go obejrzeæ pod adresem: http://www.youtube.com/watch?v=CsOJeIbpqro (wymagana jest przegladarka z obs³ug± HTML5 lub z wtyczk± Flash).
+
+\section{Mo¿liwe rozszerzenia}
+\label{sec:mozliweRoz}
+
+Projekt znajduje siê po adresem http://alloysvisualisation.codeplex.com/. Posiada on w pe³ni otwarte ¼ród³a na licencji New BSD. Ka¿dy mo¿e zmodyfikowaæ aplikacje wed³ug w³asnych potrzeb. Program mo¿e w bardzo ³atwy sposób zostaæ zmieniony, tak aby wy¶wietla³ inny rodzaj modeli 3D. Naj³atwiej modyfikowaæ program przy u¿yciu Visual Studio 2010. Mo¿liwa jest równie¿ kompilacja z linii poleceñ. Do modyfikacji, poza ¼ród³ami, niezbêdna jest równie¿ biblioteka WPFExtension. Mo¿na j± znale¼æ na stronie projektu.
+
+%---------------------------------------------------------------------------
+\section{U¿yte narzêdzia i biblioteki}
+\label{sec:uz}
+
+Podczas implementacji korzysta³em z nastêpuj±cych narzêdzi i bibliotek:
+\begin{enumerate}%[1)]
+\item ¦rodowisko programistyczne - Visual Studio 2010 Ultimate
+\item ¦rodowisko uruchomieniowe - .Net 4.0
+\item Jêzyk C\# w wersji 4.0
+\item System kontroli wersji - Team Foundation Server w serwisie codeplex.com
+\item Biblioteka WPFExtensions - http://wpfextensions.codeplex.com/
+\item Python 2.7
+\end{enumerate}
+
+\section{Zakoñczenie}
+\label{sec:zakonczenie}
+
+Celem pracy by³o zaprojektowanie i implementacja systemu pozwalaj±cego na wizualizacje procesów dyfuzji i porz±dkowania w stopach miêdzymetalicznych, takich jak stop $\beta$- Mg$_{2}$Al$_{3}$. Kluczowe by³y dwa elementy: Przedstawienie modelu siatki krystalicznej z mo¿liwo¶ci± wygodnej manipulacji obiektami oraz przetwarzanie grupy plików, aby wyniki pokazywa³y ewolucjê systemu.
+
+Interfejs jest ³atwy i intuicyjny w u¿yciu. Po³o¿y³em spory nacisk na wydajno¶æ aplikacji. U¿ytkownik widzi niemal natychmiast rezultat ka¿dej operacji, dlatego wybór technologii mia³ spore znaczenie. Wybra³em jêzyk C\# dzia³aj±cy w ramach technologii .Net. W tym przypadku daje on optymalne rozwi±zanie pomiêdzy sprawno¶ci± programowania, a szybko¶ci± dzia³ania. Jako ¶rodowisko programistyczne wybra³em Visual Studio 2010 Ultimate ze wzglêdu na najlepsze wsparcie.
+
+W Pierwszym etapie pracy skupi³em siê na zebraniu wymagañ projektowych. Temat z³o¿onych stopów metalicznych (CMA) by³ dla mnie nowy, dlatego pomoc merytoryczna promotora okaza³a siê niezwykle cenna. W kolejnym etapie stworzy³em odpowiednie prototypy, aby wybraæ najlepsz± z technologii. W ostatnim etapie zaprojektowa³em i zaimplementowa³em aplikacjê, któr± nastêpnie przetestowa³em.
+
+Cel pracy zosta³ osi±gniêty. Aplikacja do wizualizacji procesów zachodz±cych w z³o¿onych stopach metalicznych jest w pe³ni funkcjonalna zgodnie ze specyfikacj±. Interfejs graficzny jest prosty w obs³udze. Program z powodzeniem mo¿e byæ zastosowany do innych celów, nawet bez ingerencji w kod.
+
+
+%---------------------------------------------------------------------------
+
+
+
+
+
+

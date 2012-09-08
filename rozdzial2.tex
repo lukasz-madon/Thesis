@@ -1,0 +1,69 @@
+\chapter{Zagadnienie fizyczne}
+\label{cha:zagadnieniaTeoretyczne}
+W danym rozdziale przedstawiê opis teoretycznych zagadnieñ. Rozpocznê od opisu z³o¿onych struktur metalicznych.
+
+%---------------------------------------------------------------------------
+
+\section{Z³o¿one stopy metaliczne}
+\label{sec:zlozoneStopyMet}
+
+Z³o¿one struktury metaliczne s± to z³o¿one zwi±zki, których komórka elementarna sk³ada siê z tysiêcy atomów. Struktury te maja podobne defekty, jak proste stopy, sk³adaj±ce siê z kilku lub kilkudziesiêciu atomów. Nale¿± do nich:
+
+\begin{enumerate}%[1)]
+\item wakancja
+
+\item podmiana atomów
+
+\item tworzenie szczelin
+
+\end{enumerate}
+
+Dodatkowo, wystêpuj± specyficzne defekty w siatce krystalicznej: niepe³ne obsadzenie pozycji atomowych oraz nieporz±dek konfiguracyjny wewnêtrznych klastrów atomów\cite{PhysRev}.
+
+Stop miêdzymetaliczny jest to zwi±zek dwóch lub wiêcej metali, które s± powi±zane wi±zaniem metalicznym. Charakteryzuj± siê wysokim stopniem uporz±dkowania. Bardzo wiele stopów miêdzymetalicznych jest kruchych w niskich temperaturach, jednak po osi±gniêciu pewnej temperatury w³a¶ciwo¶ci fizyczne ulegaj± zmianie, przez co mo¿na je zastosowaæ w np. turbinie gazowej samolotu\cite{inter}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[scale=0.7]{Intermetallic}
+	\caption{Porównanie stopów. a) stop miêdzymetaliczny b) standardowy stop.}
+\end{figure}
+
+%---------------------------------------------------------------------------
+
+\section{Stop  $\beta$- Mg$_{2}$Al$_{3}$}
+\label{sec:stopBetaMgAl}
+
+Faza $\beta$- Mg$_{2}$Al$_{3}$ nale¿y do najbardziej skomplikowanych w¶ród faz tego stopu. Odkrycia jej dokona³ Riederer w 1936 roku na podstawie badañ dyfrakcyjnych\cite{Riederer}. Inny naukowiec, Perlitz, odkry³, ¿e stop sk³ada siê z 38\% magnezu i 62\% aluminium (wagowo). Posiada on równie¿ kubiczn± grupê przestrzenn± Fd3m z komórk± elementarn± o boku równym 2,822nm posiadaj±c± oko³o 1166 atomów\cite{Perlitz}. G³ówn± zalet± stopu $\beta$- Mg$_{2}$Al$_{3}$ jest bardzo ma³a gêsto¶æ, co jest istotn± cech± materia³ów termoelektrycznych oraz akumulatorów wodoru\cite{PhysRev}.
+
+W temperaturze poni¿ej 100\degree C stop $\beta$- Mg$_{2}$Al$_{3}$ wystêpuje w stanie fazy metastabilnej.
+W temperaturze pomiêdzy 100 a 200\degree C zachodzi czê¶ciowa transformacja do fazy $\beta\prime$, natomiast powy¿ej 214\degree C faza $\beta\prime$ znika i zaobserwowaæ mo¿na tylko fazê $\beta$\cite{Feuerbacher}. W komórce elementarnej stopu pozycje atomowe s± okre¶lanie przez 23 krystalograficznie nierównowa¿ne pozycje Wyckoffa\cite{PhysRev}. Generuje to w sumie 1832 mo¿liwe do obsadzenia pozycje atomowe w komórce elementarnej, z których 840 jest obsadzonych z prawdopodobieñstwem równym 1 przez atomy magnezu lub aluminium, natomiast prawdopodobieñstwo obsadzenia pozosta³ych atomów jest mniejsze od 1. Dla pozycji, których prawdopodobieñstwo wynosi 1 istnieje lokalne ograniczenie odleg³o¶ciowe równe 0,25092nm. Pozosta³e pozycje nie spe³niaj± tego ograniczenia\cite{PhysRev}.
+
+Pozycje z prawdopodobieñstwem równym 1 tworz± szereg heksagonalny, który formuje szkielet dla pozycji o mniejszym prawdopodobieñstwie\cite{Wolny}.
+
+%---------------------------------------------------------------------------
+
+\section{Symulacje dyfuzji i porz±dkowania w CMA}
+\label{sec:symulacje}
+
+Symulacje dyfuzji i porz±dkowania w CMA korzystaj± z kilku algorytmów. Pierwszy z nich to metoda ,,dziel i rz±d¼''. Metoda dziel i rz±d¼ s³u¿y do projektowana algorytmów, czêsto rekurencyjnych. Skomplikowany problem dzielimy na mniejsze problemy, do momentu a¿ rozwi±zanie jest bezpo¶rednie. Przyk³adami takiego podej¶cia s± algorytmy quicksort, merge sort, szybka transformata Fouriera czy algorytm Euklidesa najwiêkszego wspólnego dzielnika - jeden z pierwszych algorytmów typu ,,dziel i rz±d¼'' \cite{cormen}. Problematyczne mo¿e byæ dodatkowe zu¿ycie pamiêci, jakie wystêpuje przy algorytmach rekurencyjnych. Wi±¿e siê to z wykorzystaniem stosu wywo³añ funkcji. Oczywi¶cie praktycznie ka¿dy algorytm rekurencyjny da siê przekszta³ciæ na algorytm iteracyjny, jednak zu¿ycie pamiêci pozostaje bez zmian. W przypadku symulacji wszystkie pozycje zosta³y podzielone na mniejsze, sk³adaj±ce siê z 72 pozycji atomowych.
+
+Kolejnym algorytmem wykorzystanym w symulacji jest symulowane wy¿arzanie. Algorytm ten jest algorytmem heurystycznym, który próbuje znale¼æ optymalne rozwi±zanie, przeszukuj±c przestrzeñ alternatywnych rozwi±zañ problemu. Algorytm jest bardzo skuteczny, gdy chcemy ustaliæ najlepsze ekstremum po¶ród ekstremów lokalnych. Algorytm przypomina proces wy¿arzania w metalurgii, st±d nazwa. Mo¿na go z powodzeniem stosowaæ do ca³ej gamy problemów, jak choæby problem komiwoja¿era. Symulowane wy¿arzanie jest wykorzystywane w koñcowym etapie symulacji do optymalizacji pozycji atomów. Jest to przyk³ad algorytmu zach³annego\cite{sa}.
+
+Nastêpny algorytm, jaki jest wykorzystywany w symulacji, to dynamika molekularna(MD). Jest to numeryczne rozwi±zywanie i komputerowa symulacja przestrzeni fazowej dla zdefiniowanego modelu uk³adu moleku³. Stosuje siê metody numeryczne, poniewa¿ analityczne rozwi±zanie by³oby zbyt skomplikowane. Elementarnie stosuje siê równania ruchu Newtona, które wzbogaca siê o oddzia³ywania w celu uzyskania informacji o w³a¶ciwo¶ciach zale¿nych od czasu. Oddzia³ywania miêdzy elementami uk³adu s± opisywane przez funkcjê oraz zespó³ parametrów dla tej funkcji. Dynamika molekularna znajduje wiele zastosowañ, miêdzy innymi w biochemii jako narzêdzie do poznawania struktury i oddzia³ywañ w bia³kach, kwasach nukleinowych i innych biomoleku³ach\cite{MD}.
+
+Pliki wynikowe chmc s± plikami wyj¶ciowymi metody Metropolis Monte Carlo, inaczej zwan± Lattice Gas MC. Metoda ta bazuje na losowej zmianie sekwencji danych, w celu znalezienia optimum. W tym wypadku liczymy energiê dla ka¿dego kroku. Je¿eli energia w nastêpnym kroku maleje, to akceptujemy zmianê, je¿eli energia ro¶nie, to akceptujemy zmianê z prawdopodobieñstwem proporcjonalnym do wzoru \ref{eq:prob}.
+
+\begin{equation} \label{eq:prob}
+ e^{\frac{-\Delta E}{kT}}
+\end{equation}
+gdzie $\Delta E$ jest przyrostem energii, k sta³± Boltzmanna a T oznacza temperaturê. Na pocz±tku ustalamy listê pozycji. Krokiem MC jest zmiana dwóch obiektów(atom lub wakancja) miêdzy dwoma z ustalonych pozycji.
+
+Energia jest wyznaczana z potencja³ów z odpowiednim u¶rednieniem obliczeñ kwantowych. Suma energii oddzia³ywañ wszystkich par atomów dana jest wzorem:
+\begin{equation} \label{eq:ene}
+E = \sum_{i,j=1, j>1}^{N} U(r_{ij})
+\end{equation}
+
+gdzie $r_{ij} = | \vec{r_{i}} - \vec{r_{j}} |$ a $ U(r_{ij}) $ jest energi± potencjaln± w po³o¿eniach $r_{i}$ oraz $r_{j}$\cite{simulation}.
+
+Wyniki symulacji s± u¿ywane w aplikacji do wizualizacji. Symulacje s± w 100\% komputerowe, bez dodatkowych danych eksperymentalnych. Dlaczego istotne jest poznanie struktury na poziomie atomów? Poniewa¿ inne po³o¿enie jednego atomu mo¿e mieæ wp³yw na wyliczane warto¶ci. 
+
