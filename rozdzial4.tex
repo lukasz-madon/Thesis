@@ -6,7 +6,7 @@ W rozdziale opiszê projekt aplikacji. Omówiê strukturê programu, interefejs u¿yt
 
 \section{Struktura aplikacji}
 \label{sec:strukturaApp}
-Struktura omawianej aplikacji opiera siê na wzorcu architektonicznym Model View Controller (MVC). Wzorce architektoniczne okre¶laj± sprawdzony sposób tworzenia architektury systemu. Definiuj± one z jakich elementów sk³ada siê system, ogólna strukturê komponentów, komunikacjê pomiêdzy modu³ami oraz jaki zakres funkcjonalno¶ci przypada na ka¿dy komponent. 
+Struktura omawianej aplikacji opiera siê na wzorcu architektonicznym Model View Controller (MVC). Wzorce architektoniczne okre¶laj± sprawdzony sposób tworzenia architektury systemu. Definiuj± one, z jakich elementów sk³ada siê system, ogólna strukturê komponentów, komunikacjê pomiêdzy modu³ami oraz jaki zakres funkcjonalno¶ci przypada na ka¿dy komponent. 
 
 MVC g³ównie u¿ywany jest w aplikacjach, posiadaj±cych interfejs graficzny. Sk³ada siê on z 3 czê¶ci:
 \begin{enumerate}%[1)]
@@ -18,16 +18,16 @@ MVC g³ównie u¿ywany jest w aplikacjach, posiadaj±cych interfejs graficzny. Sk³ad
 Nieroz³±cznymi elementami ka¿dej aplikacji s± struktury danych, algorytmy i komunikacja. MVC silnie separuje ka¿dy z elementów. Przyk³adowo, w dobrze zaprojektowanej aplikacji kod wy¶wietlaj±cy informacje u¿ytkownikowi nie mo¿e znajdowaæ siê w modelu. Do zalet tego wzorca nale¿±:
 \begin{enumerate}%[1)]
 \item Niezale¿no¶æ modelu i widoku - mo¿na zmieniæ wygl±d lub dodaæ inny do aplikacji bez konieczno¶ci ingerencji w model
-\item Lepsza podatno¶æ na zmiany - zespo³y pracuj±ce na widokiem i modelem mog± pracowaæ niezale¿nie
+\item Lepsza podatno¶æ na zmiany - zespo³y pracuj±ce nad widokiem i modelem mog± pracowaæ niezale¿nie
 \end{enumerate}
 
 Natomiast wady to:
 \begin{enumerate}%[1)]
-\item Z³o¿ono¶æ - aplikacje oparte na tym wzorcu bywaj± rozbudowane, dlatego najczê¶ciej stosuje siê to wobec ¶rednich i du¿ych projektów
+\item Z³o¿ono¶æ - aplikacje oparte na tym wzorcu bywaj± rozbudowane, dlatego najczê¶ciej stosuje siê go wobec ¶rednich i du¿ych projektów
 \item Kosztowne zmiany interfejsów 
 \end{enumerate}
 
-MVC jest bardzo popularnym wzorcem po¶ród aplikacji internetowych, gdzie widok jest definiowany w jêzyku HTML, model okre¶la aplikacja serwerowa i komunikacja na ogól opiera siê na ¿±daniach HTTP\cite{fowler}. Windows Presentation Foundation opiera siê na wzorcu MVVM (Model View  View-Model), jednak nie korzysta³em z niego w swojej aplikacji - cechy jakie posiada MVVM nie by³y konieczne. Strukturê widoku wizualizacji najlepiej oddaje rysunek ~\ref{fig:guistruc}:
+MVC jest bardzo popularnym wzorcem po¶ród aplikacji internetowych, gdzie widok jest definiowany w jêzyku HTML, model okre¶la aplikacja serwerowa i komunikacja na ogól opiera siê na ¿±daniach HTTP\cite{fowler}. Windows Presentation Foundation opiera siê na wzorcu MVVM (Model View  View-Model), jednak nie korzysta³em z niego w swojej aplikacji - cechy jakie posiada MVVM nie by³y konieczne. Strukturê widoku wizualizacji najlepiej oddaje rysunek ~\ref{fig:guistruc}.
 
 \begin{figure}[h!]
   \centering
@@ -38,7 +38,7 @@ MVC jest bardzo popularnym wzorcem po¶ród aplikacji internetowych, gdzie widok j
 
 W g³ównym oknie osadzony jest kontener typu Grid (Main Grid). Jest to rodzaj panelu, który pozwala na umieszczenie wielu elementów wewn±trz. Zoom Control s³u¿y do powiêkszania i pomniejszania modeli. Obok niego jest panel, w którym znajduj± siê guziki oraz suwaki (Buttons Panel) i panel z filtrem maski (Mask Panel). Najistotniejszy, z punktu widzenia u¿ytkownika, jest panel typu Viewport3D (View Port), który odpowiada ze wy¶wietlanie obiektów w trzech wymiarach. W ¶rodku znajduje siê Visual Model, do którego przypisany jest model atomów\cite{wpf}. Dziêki takiej strukturze aplikacja w ³atwy sposób dostosowuje siê do ró¿nych rozdzielczo¶ci ekranu.
 
-W aplikacji mo¿na wyszczególniæ kilka wzorców projektowych, które s± wszechobecne w¶ród programów. Deweloperzy bardzo czêsto korzystaj± z wzorców, czêsto niejawnie, aby wykorzystaæ najlepsze i sprawdzone rozwi±zanie. Jednym z wzorców kreacyjnych, z których korzystam jest Budowniczy. Dziêki niemu mo¿na oddzieliæ tworzenie obiektów od logiki, co pozwala nam u¿ywaæ tego samo procesu dla ró¿nych obiektów np. obiekty s³u¿±ce do testów\cite{builder}. Na podstawie plików wynikowych i parametrów ustawionych przez u¿ytkownika program tworzy modele atomów w komórce elementarnej. U¿ywana do tego jest klasa AtomBuilder, która z kolekcji atomów tworzy model 3D.
+W aplikacji mo¿na wyszczególniæ kilka wzorców projektowych, które s± wszechobecne w¶ród programów. Deweloperzy bardzo czêsto korzystaj± z wzorców, czêsto niejawnie, aby wykorzystaæ najlepsze i sprawdzone rozwi±zanie. Jednym z wzorców kreacyjnych, z których korzystam jest Budowniczy. Dziêki niemu mo¿na oddzieliæ tworzenie obiektów od logiki, co pozwala nam u¿ywaæ tego samo procesu dla ró¿nych obiektów np. obiektów s³u¿±cych do testów\cite{builder}. Na podstawie plików wynikowych i parametrów ustawionych przez u¿ytkownika program tworzy modele atomów w komórce elementarnej. U¿ywana do tego jest klasa AtomBuilder, która z kolekcji atomów tworzy model 3D.
 
 Program do wizualizacji sk³ada siê z 5569 niepustych linii kodu, 11 plików i biblioteki WPFExtenstion, która nie wchodzi w sk³ad standardowej biblioteki. Rysunek ~\ref{fig:solution} przedstawia strukturê projektu:
 
@@ -63,7 +63,7 @@ C\# (wymawiane jako ,,si szarp'' to prosty, nowoczesny, obiektowy i bezpieczny p
 C\# jest jêzykiem obiektowym, lecz zapewnia tak¿e wsparcie dla programowania komponentowego (ang. component-oriented). Nowoczesne sposoby projektowania oprogramowania w coraz wiêkszym stopniu opieraj± siê na komponentach programowych, maj±cych postaæ niezale¿nych i samoopisuj±cych siê pakietów funkcji. Kluczem do tego typu komponentów jest to, ¿e prezentuj± one model programowania za pomoc± w³a¶ciwo¶ci, metod i zdarzeñ, s± wyposa¿one w atrybuty udostêpniaj±ce deklaratywne informacje na temat komponentu, a tak¿e zawieraj± swoj± w³asn± dokumentacjê. C\# umo¿liwia korzystanie z konstrukcji jêzykowych, które w bezpo¶redni sposób wspieraj± wymienione koncepcje, co czyni go niejako naturalnym jêzykiem do tworzenia i u¿ywania komponentów programowych\cite{csharp}.
 \end{quote}
 
-Jêzyk ten jest kompilowany do kodu po¶redniego Common Intermediate Language (CIL), który jest wykonywany przez ¶rodowisko uruchomieniowe. Natywnie wspieranym ¶rodowiskiem jest .Net dzia³aj±cy pod system Windows. Istnieje równie¿ alternatywna, opensourceowa implementacja Mono, która wspiera wiele systemów operacyjnych. Jêzyk C\# jest stosunkowo m³odym jêzykiem. Pierwsza wersja powsta³a 2001 roku. C\# posiada bardzo wiele przydatnych cech, takich jak zarz±dzanie pamiêci±, wyra¿enia LINQ czy pe³na kontrola typów. Jednak dla mnie najbardziej u¿yteczna jest wieloparadygmowo¶æ jêzyka. C\# w wersji 1.0 pozwala³ na pisanie kodu obiektowego oraz proceduralnego. C\# 2.0 doda³ wsparcie dla programowania generycznego. C\# 3.0 zosta³ wzbogacony o elementy programowania funkcjonalnego poprzez wyra¿enia lambda oraz LINQ. C\# 4.0 doda³ wsparcie dla programowania dynamicznego, natomiast C\# 5.0 wspiera programowanie asynchroniczne. Na dan± chwilê nie istnieje ¿aden inny mainstreamowy jêzyk, który wspiera³by tak wiele metodologii programowania. Jêzyk ten posiada równie¿ ma³o tzw. ,,gotcha'' (sprzeczne z intuicj± rozwi±zanie, które powoduje b³êdy w programowaniu), przez co programu zawieraj± mniej b³êdów. Moim zdaniem jest to istotna cecha, która wp³ywa na jako¶æ oprogramowania. Ludzki mózg posiada swoje ograniczenia, wiêc korzystaj±c z prostszych narzêdzi mo¿emy budowaæ bardziej skompilowane systemy\cite{csharp}.
+Jêzyk ten jest kompilowany do kodu po¶redniego Common Intermediate Language (CIL), który jest wykonywany przez ¶rodowisko uruchomieniowe. Natywnie wspieranym ¶rodowiskiem jest .Net dzia³aj±cy pod system Windows. Istnieje równie¿ alternatywna, otwarta implementacja Mono, która wspiera wiele systemów operacyjnych. Jêzyk C\# jest stosunkowo m³odym jêzykiem. Pierwsza wersja powsta³a w 2001 roku. C\# posiada bardzo wiele przydatnych cech, takich jak zarz±dzanie pamiêci±, wyra¿enia LINQ czy pe³na kontrola typów. Jednak dla mnie najbardziej u¿yteczna jest wieloparadygmowo¶æ jêzyka. C\# w wersji 1.0 pozwala³ na pisanie kodu obiektowego oraz proceduralnego. C\# 2.0 doda³ wsparcie dla programowania generycznego. C\# 3.0 zosta³ wzbogacony o elementy programowania funkcjonalnego poprzez wyra¿enia lambda oraz LINQ. C\# 4.0 doda³ wsparcie dla programowania dynamicznego, natomiast C\# 5.0 wspiera programowanie asynchroniczne. Na dan± chwilê nie istnieje ¿aden inny mainstreamowy jêzyk, który wspiera³by tak wiele metodologii programowania. Jêzyk ten posiada równie¿ ma³o tzw. ,,gotcha'' (sprzeczne z intuicj± rozwi±zanie, które powoduje b³êdy w programowaniu), przez co programy zawieraj± mniej b³êdów. Moim zdaniem jest to istotna cecha, która wp³ywa na jako¶æ oprogramowania. Ludzki mózg posiada swoje ograniczenia, wiêc korzystaj±c z prostszych narzêdzi, mo¿emy budowaæ bardziej skompilowane systemy\cite{csharp}.
 
 \subsection{Funkcje pomocnicze}
 \label{subsec:funkcjePom}
@@ -74,7 +74,7 @@ Ka¿da aplikacja ¶redniej lub du¿ej wielko¶ci posiada zbiór funkcji pomocniczych.
  \frac{stopnie}{180} * \Pi
 \end{equation}
 
-Dwie kolejne metody s³u¿± do parsowania ³añcuchów tekstowych i zamiany na liczbê zmiennoprzecinkow±. Dlaczego definiowaæ na nowa tak prost± funkcjê, która istnieje w wielu bibliotekach? S± ku temu dwa powody: ró¿ny separator dziesiêtny oraz formatowanie liczb.
+Dwie kolejne metody s³u¿± do parsowania ³añcuchów tekstowych i zamiany na liczbê zmiennoprzecinkow±. Dlaczego definiowaæ na nowo tak prost± funkcjê, która istnieje w wielu bibliotekach? S± ku temu dwa powody: ró¿ny separator dziesiêtny oraz formatowanie liczb.
 
 \begin{figure}[h!]
   \centering
@@ -83,7 +83,7 @@ Dwie kolejne metody s³u¿± do parsowania ³añcuchów tekstowych i zamiany na liczbê
 	 ¬ród³o: Wikipedia na licencji Creative Commons.}
 \end{figure}
 
-Na ¶wiecie dominuj± dwa ró¿ne separatory. Pierwszy z nich to kropka, który zaznaczony jest kolorem niebieskim na powy¿szej mapce. Drugi to przecinek - kolor zielony. Istnieje równie¿ trzeci separator, momayyez, który wystêpuje w krajach arabskich. U¿ycie nieprawid³owego separatora dziesiêtnego mo¿e mieæ ró¿ne rezultaty. Najmniej szkodliwe jest oczywi¶cie nieprawid³owe wy¶wietlanie, natomiast bardzo czêsto aplikacja zmienia swoje dzia³anie lub zawiesza siê. Fakt ten wynika z niewiedzy, ignorancji lub b³êdu w projekcie, tak jak w przypadku platformy .Net. Domy¶lnie ustawiony jest lokalny separator, dlatego przyk³adowo aplikacja czytaj±ca plik w Wielkiej Brytanii mo¿e dzia³aæ poprawnie, natomiast w Polsce zawiesza siê. Jest kilka rozwi±zañ dla tego problemu. Je¿eli posiadamy ¼ród³a programu, mo¿emy poprawiæ kod, który sprawia problemy. W przypadku braku dostêpu do kodu ¼ród³owego mo¿emy stworzyæ modu³, który bêdzie konwertowa³ pliki. Innym sposobem jest zmiana ustawieñ u¿ytkownika, jednak  mo¿e to wp³yn±æ na inne aplikacje. Najlepszym rozwi±zaniem jest stworzenie nowego u¿ytkownika z odpowiednimi ustawieniami tylko dla tej aplikacji.
+Na ¶wiecie dominuj± dwa ró¿ne separatory. Pierwszy z nich to kropka, który na powy¿szej mapce zaznaczony jest kolorem niebieskim. Drugi to przecinek - kolor zielony. Istnieje równie¿ trzeci separator, momayyez, który wystêpuje w krajach arabskich. U¿ycie nieprawid³owego separatora dziesiêtnego mo¿e mieæ ró¿ne rezultaty. Najmniej szkodliwe jest oczywi¶cie nieprawid³owe wy¶wietlanie, natomiast bardzo czêsto aplikacja zmienia swoje dzia³anie lub zawiesza siê. Fakt ten wynika z niewiedzy, ignorancji lub b³êdu w projekcie, tak jak w przypadku platformy .Net. Domy¶lnie ustawiony jest lokalny separator, dlatego przyk³adowo aplikacja czytaj±ca plik w Wielkiej Brytanii mo¿e dzia³aæ poprawnie, natomiast w Polsce zawiesza siê. Jest kilka rozwi±zañ dla tego problemu. Je¿eli posiadamy ¼ród³a programu, mo¿emy poprawiæ kod, który sprawia problemy. W przypadku braku dostêpu do kodu ¼ród³owego mo¿emy stworzyæ modu³, który bêdzie konwertowa³ pliki. Innym sposobem jest zmiana ustawieñ u¿ytkownika, jednak  mo¿e to wp³yn±æ na inne aplikacje. Najlepszym rozwi±zaniem jest stworzenie nowego u¿ytkownika z odpowiednimi ustawieniami tylko dla tej aplikacji.
 
 Aby unikn±æ tego b³êdu, moja funkcja korzysta z wbudowanej funkcji z odpowiednimi parametrami:
 
@@ -95,7 +95,7 @@ static bool TryParseDouble(this string text, out double value)
 }
 \end{lstlisting}
 
-Funkcja akceptuje ka¿dy format liczby zmiennoprzecinkowej. Dobr± praktyk± jest akceptowanie wiêkszego zbioru danych, aby pó¼niej odpowiednio je filtrowaæ. Zdefiniowana metoda jest metod± rozszerzeñ. Mo¿na j± rozpoznaæ po s³owie kluczowym this. Dziêki temu mo¿na j± u¿yæ jakby by³a zdefiniowana w typie string. Druga metoda ma to samo zadanie, jednak dodatkowo wy¶wietla b³±d dla u¿ytkownika w postaci czerwonego tekstu. ¦wiadczy on o nieprawid³owym formacie liczby.
+Funkcja akceptuje ka¿dy format liczby zmiennoprzecinkowej. Dobr± praktyk± jest akceptowanie wiêkszego zbioru danych, aby pó¼niej odpowiednio je filtrowaæ. Zdefiniowana metoda jest metod± rozszerzeñ. Mo¿na j± rozpoznaæ po s³owie kluczowym ,,this''. Dziêki temu mo¿na j± u¿yæ, jakby by³a zdefiniowana w typie string. Druga metoda ma to samo zadanie, jednak dodatkowo wy¶wietla b³±d dla u¿ytkownika w postaci czerwonego tekstu. ¦wiadczy on o nieprawid³owym formacie liczby.
 
 \begin{figure}[h!]
   \centering
@@ -110,7 +110,7 @@ Model ka¿dego atomu jest przedstawiany jako sfera. Kszta³t pojedynczej sfery jes
 
 \begin{enumerate}%[1)]
 \item Ustalamy warunki pocz±tkowe: powierzchnia sfery sk³ada siê z 32 trójk±tów
-\item Budujemy sferê pos³uguj±c siê k±tem theta z zakresu <0; 360> oraz zmienn± y z zakresu <-1;1>
+\item Budujemy sferê, pos³uguj±c siê k±tem theta z zakresu <0; 360> oraz zmienn± y z zakresu <-1;1>
 \item Tworzymy pusta siatkê MeshGeometry3D
 \item Dla kroków dt oraz dy dodajemy do siatki pozycje punktów, normalne oraz wspó³rzêdne tekstury 
 \item £±czymy punkty trójk±tami
@@ -166,19 +166,19 @@ Podczas wizualizacji modeli kolor jest jednym z kluczowych parametrów. Dostarcza
 \end{center}
 \end{table}
 
-Sumaryczne prawdopodobieñstwo ka¿dej ze sk³adowych wynosi 1. Wszystkie warto¶ci po¶rednie powstaj± przez mieszanie siê barwy czerwonej i niebieskiej. Niestety kolor sk³adaj±cy siê  z 50\% czerwonego oraz 50\% niebieskiego nie jest zbyt wyra¼ny. Dlatego aby polepszyæ kontrast i jako¶æ modelu, wymy¶li³em wzór, który dodaje równie¿ kana³ zielony.
+Sumaryczne prawdopodobieñstwo ka¿dej ze sk³adowych wynosi 1. Wszystkie warto¶ci po¶rednie powstaj± przez mieszanie siê barwy czerwonej i niebieskiej. Niestety kolor sk³adaj±cy siê  z 50\% czerwonego oraz 50\% niebieskiego nie jest zbyt wyra¼ny. Dlatego aby polepszyæ kontrast i jako¶æ modelu, dodatkowo wystêpuje kana³ zielony. Ilo¶æ zieleni jest proporcjonalna do ró¿nicy poziomu obsadzenia magnezu i aluminium.
 
 \begin{equation}
- - 2 | x - 0,5|  + 1
+ I(g) = 1 - \frac{|P(Mg) - P(Al)|}{|P(Mg) + P(Al)|}
 \end{equation}
 
-Zmienna x jest prawdopodobieñstwem wyst±pienia magnezu. Funkcja przyjmuje maksimum dla obsadzenia mieszanego 50\%.
+Zmienna I(g) jest poziomem intensywno¶ci kana³u zielonego. 
 
-\begin{figure}[h!]
-  \centering
-	\includegraphics[scale=0.6]{Mg74Al26}
-	\caption{Seria atomów dla prawdopodobieñstwa Al wynosz±cego 0,76 oraz Mg wynosz±cego 0,24.}
-\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%	\includegraphics[scale=0.6]{test}
+%	\caption{Zbiór testowy 20 atomów .}
+%\end{figure}
 
 %\newpage
 
@@ -213,10 +213,10 @@ Przetwarzanie grupy modeli jest w gruncie rzeczy modyfikacj± algorytmu dla pojed
 \begin{enumerate}%[1)]
 \item Po naci¶nieciu Process Files u¿ytkownik, w oknie wyboru folderu, wybiera folder z plikami
 \item Wczytywane s± pliki o rozszerzeniu .chmc
-\item Dla ka¿dego pliku wczytywane s± dane, filtrowane atomy zgodnie z maska, renderowane i ustawiane s± parametry, które zdefiniowa³ u¿ytkownik
-\item Ka¿dy model zapisany jest w pliku w formacie PNG gdzie, jego nazwa odpowiada temperaturze
+\item Dla ka¿dego pliku wczytywane s± dane, filtrowane atomy zgodnie z mask±, renderowane i ustawiane s± parametry, które zdefiniowa³ u¿ytkownik
+\item Ka¿dy model zapisany jest w pliku w formacie PNG, gdzie jego nazwa odpowiada temperaturze
 \end{enumerate}
-Poniewa¿ przetwarzanie du¿ej liczby plików mo¿e trwaæ d³u¿sz± chwile, aplikacja wy¶wietla kolejne modele, tak aby u¿ytkownik wiedzia³, ¿e program nie zawiesi³ dzia³ania. Dodatkowo na ¶rodku ekranu pojawia siê napis ,,Processing Files''.
+Poniewa¿ przetwarzanie du¿ej liczby plików mo¿e trwaæ d³u¿sz± chwilê, aplikacja wy¶wietla kolejne modele, tak aby u¿ytkownik wiedzia³, ¿e program nie zawiesi³ dzia³ania. Dodatkowo na ¶rodku ekranu pojawia siê napis ,,Processing Files''.
 
 \subsection{MouseHelper}
 \label{subsec:mouseHelper}
@@ -225,7 +225,7 @@ Klasa MouseHelper s³u¿y do obrotu obiektu przy u¿yciu myszki. W tym celu WPF u¿y
 
 %---------------------------------------------------------------------------
 
-\section{Graficzny Interface U¿ytkownika}
+\section{Graficzny Interfejs U¿ytkownika}
 \label{sec:grafInter}
 
 Graficzny interfejs u¿ytkownika (ang. Graphical User Interface), nazywany równie¿ ¶rodowiskiem graficznym, stanowi ogólne okre¶lenie sposobu prezentacji informacji przez komputer oraz sposobu interakcji z u¿ytkownikiem. G³ównym sposobem interakcji jest operacja na ró¿nych elementach, które s± rysowane na monitorze pod postaci± obrazów. Klasycznie u¿ytkownik komunikuje siê z komputerem przy pomocy komend tekstowych\cite{GUIdef}.
@@ -254,7 +254,7 @@ W lewym panelu znajduje siê kontrolka odpowiedzialna za skalowanie modelu.
 
 %\newpage
 
-Atomy mog± byæ skalowane od 0.01 do 100 przy u¿yciu kó³ka w myszce lub bezpo¶rednio suwakiem. Kontrolka mo¿e równie¿ wróciæ do domy¶lnej skali 1:1 lub wype³niæ ca³y ekran. S³u¿± do tego przyciski odpowiednio ,,1:1'' oraz Fill.
+Atomy mog± byæ skalowane od 0.01 do 100 przy u¿yciu kó³ka w myszce lub bezpo¶rednio suwakiem. Kontrolka mo¿e równie¿ wróciæ do domy¶lnej skali 1:1 lub wype³niæ ca³y ekran. S³u¿± do tego przyciski odpowiednio: ,,1:1'' oraz Fill.
 
 W lewym panelu znajduj± siê równie¿ elementy odpowiedzialne za g³ówn± funkcjonalno¶æ aplikacji.
 
@@ -309,7 +309,7 @@ Testowanie oprogramowania mo¿na podzieliæ na proces weryfikacji i walidacji sk³a
 \item czy spe³nia potrzeby zleceniodawcy
 \end{enumerate}
 
-Testowanie tradycyjnie jest jednym z ostaniach etapów w budowaniu aplikacji, jednak nowe metodologie, takie jak Agile, przesuwaj± znaczn± czê¶æ testów do pocz±tkowych etapów.\cite{extest} 
+Testowanie tradycyjnie jest jednym z ostatnich etapów w budowaniu aplikacji, jednak nowe metodologie, takie jak Agile, przesuwaj± znaczn± czê¶æ testów do pocz±tkowych etapów.\cite{extest} 
 
 Przyk³adem takiego podej¶cia jest Test-driven development (TDD), który opiera siê na krótkich cyklach podzielonych na: 
 \begin{enumerate}%[1)]
@@ -329,9 +329,9 @@ int add(int a, int b) {
 \end{lstlisting}
 
 Aby w pe³ni przetestowaæ tê funkcjê, nale¿y sprawdziæ wynik dla ka¿dych mo¿liwych danych wej¶ciowych. W przypadku typu liczbowego int daje nam to 4 294 967 296 mo¿liwo¶ci dla pierwszej oraz tyle samo dla drugiej liczby. W sumie daje to $ 1,84467441 \times 10^{19}$ testów jednostkowych tej trywialnej funkcji! Dlatego nigdy nie tworzy siê wszystkich mo¿liwych testów. Funkcjê add, w praktyce, nale¿y przetestowaæ dla kilku warto¶ci losowych oraz dla przypadków szczególnych, takich jak maksymalna warto¶æ int. \\
-Bardzo wa¿nym elementem testowania jest tworzenie testów z uwzglêdnieniem odbiorcy oprogramowania. U¿ytkownicy gry video diametralnie ró¿ni± siê od u¿ytkowników od systemu bankowego. 
+Bardzo wa¿nym elementem testowania jest tworzenie testów z uwzglêdnieniem odbiorcy oprogramowania. U¿ytkownicy gry video diametralnie ró¿ni± siê od u¿ytkowników systemu bankowego. 
 
-Testowanie oprogramowania jest z³o¿onym procesem, który wymaga sporych nak³adów ludzkich. Jak zawsze w takich sytuacjach pojawia siê pytanie o op³acalno¶æ prowadzenia testów. W 2002 National Institute of Standards and Technology (NIST) sporz±dzi³ raport dotycz±cy wp³ywu b³êdów oprogramowania na gospodarkê amerykañsk±. Roczny koszt nieprawid³owego dzia³ania aplikacji w roku 2002 wyniós³ 59,5 mld dolarów. Oko³o jedn± trzeci± tej kwoty da siê zaoszczêdziæ, je¿eli oprogramowanie by³oby lepiej testowane\cite{reportEco}.
+Testowanie oprogramowania jest z³o¿onym procesem, który wymaga sporych nak³adów ludzkich. Jak zawsze w takich sytuacjach, pojawia siê pytanie o op³acalno¶æ prowadzenia testów. W 2002 National Institute of Standards and Technology (NIST) sporz±dzi³ raport dotycz±cy wp³ywu b³êdów oprogramowania na gospodarkê amerykañsk±. Roczny koszt nieprawid³owego dzia³ania aplikacji w roku 2002 wyniós³ 59,5 mld dolarów. Oko³o jedn± trzeci± tej kwoty da siê zaoszczêdziæ, je¿eli oprogramowanie by³oby lepiej testowane\cite{reportEco}.
 Wcze¶niej wykryte b³êdy s± tañsze w naprawie. Potwierdza to analiza wielu projektów, której wyniki opisuje dana tabelka. Warto¶ci reprezentuj± krotno¶ci pojedynczego kosztu\cite{codeComplete}.
 
 
@@ -342,20 +342,31 @@ Wcze¶niej wykryte b³êdy s± tañsze w naprawie. Potwierdza to analiza wielu projek
         \hline
 \multicolumn{2}{|c|}{Koszt naprawy} & \multicolumn{5}{|c|}{Czas wykrycia} \\ \cline{3-7}
     \multicolumn{2}{|c|}{} & Wymagania & Architektura  & Programowanie & Testy & Po dostarczeniu  \\ \hline
-        Czas Wystapienia & Wymagania & 1x & 3x & 5-10x & 10x & 10-100x \\\cline{2-7} & Architektura                        		& -  & 1x  & 10x & 15x & 25-100x \\\cline{2-7} 
+        Czas Wyst±pienia & Wymagania & 1x & 3x & 5-10x & 10x & 10-100x \\\cline{2-7} & Architektura                        		& -  & 1x  & 10x & 15x & 25-100x \\\cline{2-7} 
         & Programowanie  & - & - & 1x & 10x & 10-25x  \\\hline
     \end{tabular}
     }
     \caption{Zale¿no¶ci miedzy kosztem naprawy b³êdu a etapem wyst±pienia. }
 \end{table}
 
-Testowanie oprogramowania mo¿na podzieliæ na kilka kategorii. Jednym z nich jest podzia³ na testy statyczne i dynamiczne. Testy statyczne s± to testy, które nie wymagaj± uruchomienia programu np. Code Review, za¶ testy dynamiczne s± to testy, w których aplikacja jest uruchamiana np. testy jednostkowe.
+Testowanie oprogramowania mo¿na podzieliæ na kilka kategorii. Jednym z nich jest podzia³ na testy statyczne i dynamiczne. Testy statyczne s± to testy, które nie wymagaj± uruchomienia programu np. Code Review, za¶ testy dynamiczne s± to takie, w których aplikacja jest uruchamiana np. testy jednostkowe.
 
-Metody testowania równie¿ dziel± siê na Black-box oraz White-box. Przy testowaniu typu White-box tester ma wiedzê o architekturze i wewnêtrznej strukturze testowanego modu³u. Stosowane s± g³ównie jako testy jednostkowe, testy API. Testy typu Black-box nie korzystaj± z wewnêtrznych informacji. Tester ma tylko informacjê o spodziewanym rezultacie. Istniej± równie¿ hybrydowe metody nazywane Grey-box.\cite{softTesting} 
+Metody testowania równie¿ dziel± siê na Black-box oraz White-box. Przy testowaniu typu White-box tester ma wiedzê o architekturze i wewnêtrznej strukturze testowanego modu³u. Stosowane s± g³ównie jako testy jednostkowe, testy API. Testy typu Black-box nie korzystaj± z wewnêtrznych informacji. Tester ma tylko informacjê o spodziewanym rezultacie. Istniej± równie¿ hybrydowe metody, nazywane Grey-box.\cite{softTesting} 
 
-Podczas tworzenia aplikacji do wizualizacji CMA korzysta³em g³ównie z testów GUI, wydajno¶ciowych i regresywnych. Testy GUI maja na celu sprawdzenie dzia³ania ka¿dego elementu interfejsu. Istotne nie tylko jest poprawne dzia³anie ka¿dego z elementów, ale równie¿ ich zachowanie w okre¶lonej sekwencji. Z tego powodu wraz z komplikacja GUI liczba testów ro¶nie eksponencjalnie. Mój program posiada tylko kilkana¶cie elementów, dlatego manualne testowanie jest wystarczaj±ce.
+Podczas tworzenia aplikacji do wizualizacji CMA korzysta³em g³ównie z testów GUI, wydajno¶ciowych i regresywnych. Testy GUI maj± na celu sprawdzenie dzia³ania ka¿dego elementu interfejsu. Istotne nie tylko jest poprawne dzia³anie ka¿dego z elementów, ale równie¿ ich zachowanie w okre¶lonej sekwencji. Z tego powodu wraz z komplikacj± GUI liczba testów ro¶nie eksponencjalnie. Mój program posiada tylko kilkana¶cie elementów, dlatego manualne testowanie jest wystarczaj±ce.
 
 Testy wydajno¶ciowe maj± na celu zbadanie, jak system zachowuje siê pod obci±¿eniem. Mo¿emy okre¶liæ, czy system spe³nia wymagania wydajno¶ciowe, zbadaæ skalowalno¶æ i niezawodno¶æ. Testy wydajno¶ciowe mog± równie¿ pomóc w wykrywaniu b³êdów. Podczas testowania odkry³em, ¿e jedna z metod zajmuje oko³o 95\% czasu. By³ to banalny b³±d. Dla ka¿dego atomu oblicza³em siatkê na nowo, mimo ¿e jest wspó³dzielona.
 Testy pomog³y równie¿ zoptymalizowaæ przetwarzanie grupy plików. W pierwszej wersji przetworzenie 30 plików zajmowa³o oko³o 20 minut. W ostatecznej wersji proces ten trwa oko³o 3 minuty.
 
 Testy regresywne jest to rodzaj testowania, który szuka b³êdów w istniej±cej funkcjonalno¶ci po wprowadzeniu zmian. Innymi s³owy, chcemy zbadaæ, czy wprowadzane poprawki nie naruszaj± dzia³aj±cej poprawnie czê¶ci systemu.\cite{softTesting} Po ka¿dej wiêkszej zmianie, a przed dodaniem kodu do systemu kontroli wersji, przeprowadza³em co najmniej jeden test regresywny.
+
+Ostatnim testem by³a kontrola wizualizacji prawdopodobieñstw obsadzenia. Pos³u¿y³ do tego plik test.chmc, który zawiera³ kombinacje obsadzeñ ze zmian± od ca³kowitego Al do ca³kowitego Mg poprzez obsadzenia mieszane. Generuje to w sumie 20 atomów (rysunek \ref{fig:test}).
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{test}
+	\caption{Zbiór testowy 20 atomów.}
+	\label{fig:test}
+\end{figure}
+
+Na rysunku \ref{fig:test} widaæ, ¿e przej¶cia w palecie s± g³adkie oraz kolor, zgodnie z oczekiwaniami, przechodzi od czerwonego do niebieskiego z domieszk± zielonej barwy.
